@@ -8,16 +8,16 @@
     <dimen name="list_item_margin_top">5dp</dimen>
     <dimen name="list_item_margin_bottom">5dp</dimen>
 
-    <dimen name="song_number_margin_start">0dp</dimen>
+    <dimen name="song_number_margin_start">5dp</dimen>
     <dimen name="song_number_margin_end">5dp</dimen>
-    <dimen name="song_number_margin_top">0dp</dimen>
-    <dimen name="song_number_margin_bottom">0dp</dimen>
+    <dimen name="song_number_margin_top">5dp</dimen>
+    <dimen name="song_number_margin_bottom">5dp</dimen>
     <dimen name="song_number_text_size">20sp</dimen>
 
     <dimen name="song_title_margin_start">5dp</dimen>
     <dimen name="song_title_margin_end">5dp</dimen>
-    <dimen name="song_title_margin_top">0dp</dimen>
-    <dimen name="song_title_margin_bottom">0dp</dimen>
+    <dimen name="song_title_margin_top">5dp</dimen>
+    <dimen name="song_title_margin_bottom">5dp</dimen>
     <dimen name="song_title_text_size">17sp</dimen>
 
     <dimen name="song_artist_margin_start">5dp</dimen>
@@ -27,9 +27,9 @@
     <dimen name="song_artist_text_size">14sp</dimen>
 
     <dimen name="play_button_playlist_margin_start">5dp</dimen>
-    <dimen name="play_button_playlist_margin_end">0dp</dimen>
-    <dimen name="play_button_playlist_margin_top">0dp</dimen>
-    <dimen name="play_button_playlist_margin_bottom">0dp</dimen>
+    <dimen name="play_button_playlist_margin_end">5dp</dimen>
+    <dimen name="play_button_playlist_margin_top">5dp</dimen>
+    <dimen name="play_button_playlist_margin_bottom">5dp</dimen>
 
     <dimen name="activity_title_margin_start">5dp</dimen>
     <dimen name="activity_title_margin_end">5dp</dimen>
@@ -40,6 +40,6 @@
     <dimen name="listview_margin_start">10dp</dimen>
     <dimen name="listview_margin_end">10dp</dimen>
     <dimen name="listview_margin_top">5dp</dimen>
-    <dimen name="listview_margin_botom">5dp</dimen>
+    <dimen name="listview_margin_bottom">5dp</dimen>
 
 </resources>

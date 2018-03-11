@@ -19,7 +19,13 @@
         android:id="@+id/songs_list_view"
         android:layout_width="match_parent"
         android:layout_height="@dimen/no_height"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:layout_marginStart="@dimen/listview_margin_start"
+        android:layout_marginEnd="@dimen/listview_margin_end"
+        android:layout_marginTop="@dimen/listview_margin_top"
+        android:layout_marginBottom="@dimen/listview_margin_bottom"
+        android:layout_marginLeft="@dimen/listview_margin_start"
+        android:layout_marginRight="@dimen/listview_margin_end">
 
     </ListView>
 

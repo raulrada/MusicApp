@@ -52,7 +52,7 @@ public class SongAdapter extends ArrayAdapter<Song> {
         Song currentSong = getItem(position);
 
         //get data from fields of current Song object and write it in TextViews
-        songPositionTextView.setText(String.valueOf(position));
+        songPositionTextView.setText(String.valueOf(position+1)); //adjust for starting index of 0
         songTitleTextView.setText(currentSong.getSongTitle());
         songArtistTextView.setText(currentSong.getSongArtist());
 
