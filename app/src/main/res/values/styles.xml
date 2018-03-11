@@ -22,4 +22,12 @@
         <item name="android:gravity">center</item>
     </style>
 
+    <style name="line">
+        <item name="android:layout_marginTop">@dimen/line_margin_top</item>
+        <item name="android:layout_marginBottom">@dimen/line_margin_bottom</item>
+        <item name="android:layout_height">@dimen/line_thickness</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">@color/colorLine</item>
+    </style>
+
 </resources>

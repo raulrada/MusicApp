@@ -63,6 +63,8 @@ public class SongAdapter extends ArrayAdapter<Song> {
         songTitleTextView.setText(currentSong.getSongTitle());
         songArtistTextView.setText(currentSong.getSongArtist());
 
+        final int mPosition = position; //necessary to pass position info to DetailsActivity
+
         playButton.setOnClickListener(new View.OnClickListener() {
             /**
              * onClickListener for buttons in ListView
@@ -72,6 +74,7 @@ public class SongAdapter extends ArrayAdapter<Song> {
             @Override
             public void onClick(View v) {
                 Intent startPlay = new Intent(c, DetailsActivity.class);
+                startPlay.putExtra("SONG_POSITION", mPosition);
                 c.startActivity(startPlay);
             }
         });

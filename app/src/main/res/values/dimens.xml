@@ -41,5 +41,11 @@
     <dimen name="listview_margin_end">10dp</dimen>
     <dimen name="listview_margin_top">5dp</dimen>
     <dimen name="listview_margin_bottom">5dp</dimen>
+    
+    <dimen name="line_margin_start">15dp</dimen>
+    <dimen name="line_margin_end">15dp</dimen>
+    <dimen name="line_margin_top">0dp</dimen>
+    <dimen name="line_margin_bottom">0dp</dimen>
+    <dimen name="line_thickness">1dp</dimen>
 
 </resources>

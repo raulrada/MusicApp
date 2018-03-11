@@ -7,6 +7,12 @@
 
     <string name="list_of_available_songs">List of Available Songs</string>
 
+    <string name="track_number">Track Number</string>
+    <string name="artist">Artist</string>
+    <string name="title">Title</string>
+    <string name="genre">Genre</string>
+    <string name="release_year">Release Year</string>
+
     <string name="elvis">Elvis Presley</string>
     <string name="suspicious_minds">Suspicious Minds</string>
     <string name="dont">Don\'t</string>

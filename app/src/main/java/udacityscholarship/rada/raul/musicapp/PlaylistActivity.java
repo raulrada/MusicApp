@@ -11,7 +11,6 @@ public class PlaylistActivity extends AppCompatActivity {
 
     public static ArrayList<Song> songs; //static to make it available in other classes,
                                          // without instantiating PlaylistActivity
-    private ListView lv;
 
     private static final int SUSPICIOUS_MINDS_RELEASE_DATE = 1969;
     private static final int DON_T_RELEASE_DATE = 1957;
@@ -34,7 +33,7 @@ public class PlaylistActivity extends AppCompatActivity {
     }
 
     /**
-     * coordinate the initialization of variables necessary for the activity
+     * coordinates the initialization of variables necessary for the activity
      * and populate activity layout
      */
     public void setup(){
@@ -46,7 +45,7 @@ public class PlaylistActivity extends AppCompatActivity {
      * display list of available songs in ListView powered by custom SongAdapter
      */
     private void populateList() {
-        lv = (ListView) findViewById(R.id.songs_list_view);
+        ListView lv = (ListView) findViewById(R.id.songs_list_view);
         SongAdapter songAdapter = new SongAdapter(this, songs);
         lv.setAdapter(songAdapter);
     }

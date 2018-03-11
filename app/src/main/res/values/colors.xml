@@ -16,4 +16,6 @@
     <color name="playlistBackground">#FFF9C4</color>
     <color name="playerBackground">#FFF9C4</color>
 
+    <color name="colorLine">#c2bd8d</color>
+
 </resources>
