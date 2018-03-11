@@ -1,7 +1,5 @@
 package udacityscholarship.rada.raul.musicapp;
 
-//todo store position onSaveInstanceState. it's the only one I really need
-
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
