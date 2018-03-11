@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="colorSongNumberText">#091564</color>
+    <color name="colorSongTitleText">#091564</color>
+    <color name="colorSongArtistText">#5967c1</color>
+
+    <color name="colorActivityTitleText">#091564</color>
+
+    <color name="colorPlayButton">#091564</color>
+
+    <color name="listItemBackground">#FFFDE7</color>
+    <color name="playlistBackground">#FFF9C4</color>
+    <color name="playerBackground">#FFF9C4</color>
+
+</resources>

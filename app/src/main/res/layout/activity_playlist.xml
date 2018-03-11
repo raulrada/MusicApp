@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/playlistBackground"
+    android:orientation="vertical"
+    tools:context="udacityscholarship.rada.raul.musicapp.PlaylistActivity">
+
+    <TextView
+        style="@style/TextAppearance.MusicApp.Title"
+        android:layout_marginEnd="@dimen/activity_title_margin_end"
+        android:layout_marginLeft="@dimen/activity_title_margin_start"
+        android:layout_marginRight="@dimen/activity_title_margin_end"
+        android:layout_marginStart="@dimen/activity_title_margin_start"
+        android:text="@string/list_of_available_songs" />
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/no_height"
+        android:layout_weight="1">
+
+    </ListView>
+
+</LinearLayout>

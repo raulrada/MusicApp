@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?><!-- list item layout -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/list_item_margin_bottom"
+    android:layout_marginEnd="@dimen/list_item_margin_end"
+    android:layout_marginLeft="@dimen/list_item_margin_start"
+    android:layout_marginRight="@dimen/list_item_margin_end"
+    android:layout_marginStart="@dimen/list_item_margin_start"
+    android:layout_marginTop="@dimen/list_item_margin_top"
+    android:background="@color/listItemBackground"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/song_position"
+        style="@style/TextAppearance.MusicApp"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/song_number_margin_bottom"
+        android:layout_marginEnd="@dimen/song_number_margin_end"
+        android:layout_marginLeft="@dimen/song_number_margin_start"
+        android:layout_marginRight="@dimen/song_number_margin_end"
+        android:layout_marginStart="@dimen/song_number_margin_start"
+        android:layout_marginTop="@dimen/song_number_margin_top"
+        android:gravity="center_vertical"
+        android:textColor="@color/colorSongNumberText"
+        android:textSize="@dimen/song_number_text_size"
+        tools:text="1" />
+
+    <LinearLayout
+        android:layout_width="@dimen/no_width"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/song_title"
+            style="@style/TextAppearance.MusicApp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/song_title_margin_bottom"
+            android:layout_marginEnd="@dimen/song_title_margin_end"
+            android:layout_marginLeft="@dimen/song_title_margin_start"
+            android:layout_marginRight="@dimen/song_title_margin_end"
+            android:layout_marginStart="@dimen/song_title_margin_start"
+            android:layout_marginTop="@dimen/song_title_margin_top"
+            android:gravity="center"
+            android:textColor="@color/colorSongTitleText"
+            android:textSize="@dimen/song_title_text_size"
+            tools:text="Goodnight girl" />
+
+        <TextView
+            android:id="@+id/song_artist_name"
+            style="@style/TextAppearance.MusicApp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/song_artist_margin_bottom"
+            android:layout_marginEnd="@dimen/song_artist_margin_end"
+            android:layout_marginLeft="@dimen/song_artist_margin_start"
+            android:layout_marginRight="@dimen/song_artist_margin_end"
+            android:layout_marginStart="@dimen/song_artist_margin_start"
+            android:layout_marginTop="@dimen/song_artist_margin_top"
+            android:gravity="center"
+            android:textColor="@color/colorSongArtistText"
+            android:textSize="@dimen/song_artist_text_size"
+            tools:text="Artist: Wet Wet Wet" />
+
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/play_button_playlist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/play_button_playlist_margin_bottom"
+        android:layout_marginEnd="@dimen/play_button_playlist_margin_end"
+        android:layout_marginLeft="@dimen/play_button_playlist_margin_start"
+        android:layout_marginRight="@dimen/play_button_playlist_margin_end"
+        android:layout_marginStart="@dimen/play_button_playlist_margin_start"
+        android:layout_marginTop="@dimen/play_button_playlist_margin_top"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/play"
+        android:src="@drawable/play_vector" />
+
+</LinearLayout>
