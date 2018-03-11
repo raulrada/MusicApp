@@ -59,7 +59,7 @@ public class Song {
 
     /**
      * get the year when the song was released
-     * @return song release year
+     * @return year the song was released
      */
     public int getSongYear(){
         return mSongYear;
