@@ -42,6 +42,18 @@
     <dimen name="listview_margin_top">5dp</dimen>
     <dimen name="listview_margin_bottom">5dp</dimen>
     
+    <dimen name="details_sub_title_margin_start">15dp</dimen>
+    <dimen name="details_sub_title_margin_end">15dp</dimen>
+    <dimen name="details_sub_title_margin_top">15dp</dimen>
+    <dimen name="details_sub_title_margin_bottom">0dp</dimen>
+    <dimen name="details_sub_title_text_size">14sp</dimen>
+
+    <dimen name="details_content_margin_start">15dp</dimen>
+    <dimen name="details_content_margin_end">15dp</dimen>
+    <dimen name="details_content_margin_top">0dp</dimen>
+    <dimen name="details_content_margin_bottom">15dp</dimen>
+    <dimen name="details_content_text_size">17sp</dimen>
+    
     <dimen name="line_margin_start">15dp</dimen>
     <dimen name="line_margin_end">15dp</dimen>
     <dimen name="line_margin_top">0dp</dimen>

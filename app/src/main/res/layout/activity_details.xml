@@ -14,7 +14,7 @@
         android:layout_marginRight="@dimen/activity_title_margin_end"
         android:layout_marginStart="@dimen/activity_title_margin_start"
         android:text="@string/song_details" />
-    
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="@dimen/no_height"
@@ -29,43 +29,173 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/track_number"/>
+                    style="@style/TextAppearance.MusicApp.SubTitle"
+                    android:layout_marginEnd="@dimen/details_sub_title_margin_end"
+                    android:layout_marginLeft="@dimen/details_sub_title_margin_start"
+                    android:layout_marginRight="@dimen/details_sub_title_margin_end"
+                    android:layout_marginStart="@dimen/details_sub_title_margin_start"
+                    android:text="@string/track_number" />
 
                 <TextView
                     android:id="@+id/song_position_text_view_details"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    tools:text="1"/>
+                    style="@style/TextAppearance.MusicApp.Content"
+                    android:layout_marginEnd="@dimen/details_content_margin_end"
+                    android:layout_marginLeft="@dimen/details_content_margin_start"
+                    android:layout_marginRight="@dimen/details_content_margin_end"
+                    android:layout_marginStart="@dimen/details_content_margin_start"
+                    tools:text="1" />
 
                 <View
                     style="@style/line"
-                    android:layout_marginStart="@dimen/line_margin_start"
                     android:layout_marginEnd="@dimen/line_margin_end"
                     android:layout_marginLeft="@dimen/line_margin_start"
-                    android:layout_marginRight="@dimen/line_margin_end"/>
+                    android:layout_marginRight="@dimen/line_margin_end"
+                    android:layout_marginStart="@dimen/line_margin_start" />
 
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/TextAppearance.MusicApp.SubTitle"
+                    android:layout_marginEnd="@dimen/details_sub_title_margin_end"
+                    android:layout_marginLeft="@dimen/details_sub_title_margin_start"
+                    android:layout_marginRight="@dimen/details_sub_title_margin_end"
+                    android:layout_marginStart="@dimen/details_sub_title_margin_start"
+                    android:text="@string/artist" />
+
+                <TextView
+                    android:id="@+id/artist_text_view_details"
+                    style="@style/TextAppearance.MusicApp.Content"
+                    android:layout_marginEnd="@dimen/details_content_margin_end"
+                    android:layout_marginLeft="@dimen/details_content_margin_start"
+                    android:layout_marginRight="@dimen/details_content_margin_end"
+                    android:layout_marginStart="@dimen/details_content_margin_start"
+                    tools:text="Wet Wet Wet" />
+
+                <View
+                    style="@style/line"
+                    android:layout_marginEnd="@dimen/line_margin_end"
+                    android:layout_marginLeft="@dimen/line_margin_start"
+                    android:layout_marginRight="@dimen/line_margin_end"
+                    android:layout_marginStart="@dimen/line_margin_start" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/TextAppearance.MusicApp.SubTitle"
+                    android:layout_marginEnd="@dimen/details_sub_title_margin_end"
+                    android:layout_marginLeft="@dimen/details_sub_title_margin_start"
+                    android:layout_marginRight="@dimen/details_sub_title_margin_end"
+                    android:layout_marginStart="@dimen/details_sub_title_margin_start"
+                    android:text="@string/title" />
+
+                <TextView
+                    android:id="@+id/title_text_view_details"
+                    style="@style/TextAppearance.MusicApp.Content"
+                    android:layout_marginEnd="@dimen/details_content_margin_end"
+                    android:layout_marginLeft="@dimen/details_content_margin_start"
+                    android:layout_marginRight="@dimen/details_content_margin_end"
+                    android:layout_marginStart="@dimen/details_content_margin_start"
+                    tools:text="Goodnight Girl" />
+
+                <View
+                    style="@style/line"
+                    android:layout_marginEnd="@dimen/line_margin_end"
+                    android:layout_marginLeft="@dimen/line_margin_start"
+                    android:layout_marginRight="@dimen/line_margin_end"
+                    android:layout_marginStart="@dimen/line_margin_start" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/TextAppearance.MusicApp.SubTitle"
+                    android:layout_marginEnd="@dimen/details_sub_title_margin_end"
+                    android:layout_marginLeft="@dimen/details_sub_title_margin_start"
+                    android:layout_marginRight="@dimen/details_sub_title_margin_end"
+                    android:layout_marginStart="@dimen/details_sub_title_margin_start"
+                    android:text="@string/genre" />
+
+                <TextView
+                    android:id="@+id/genre_text_view_details"
+                    style="@style/TextAppearance.MusicApp.Content"
+                    android:layout_marginEnd="@dimen/details_content_margin_end"
+                    android:layout_marginLeft="@dimen/details_content_margin_start"
+                    android:layout_marginRight="@dimen/details_content_margin_end"
+                    android:layout_marginStart="@dimen/details_content_margin_start"
+                    tools:text="House" />
+
+                <View
+                    style="@style/line"
+                    android:layout_marginEnd="@dimen/line_margin_end"
+                    android:layout_marginLeft="@dimen/line_margin_start"
+                    android:layout_marginRight="@dimen/line_margin_end"
+                    android:layout_marginStart="@dimen/line_margin_start" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/TextAppearance.MusicApp.SubTitle"
+                    android:layout_marginEnd="@dimen/details_sub_title_margin_end"
+                    android:layout_marginLeft="@dimen/details_sub_title_margin_start"
+                    android:layout_marginRight="@dimen/details_sub_title_margin_end"
+                    android:layout_marginStart="@dimen/details_sub_title_margin_start"
+                    android:text="@string/release_year" />
+
+                <TextView
+                    android:id="@+id/year_text_view_details"
+                    style="@style/TextAppearance.MusicApp.Content"
+                    android:layout_marginEnd="@dimen/details_content_margin_end"
+                    android:layout_marginLeft="@dimen/details_content_margin_start"
+                    android:layout_marginRight="@dimen/details_content_margin_end"
+                    android:layout_marginStart="@dimen/details_content_margin_start"
+                    tools:text="1900" />
+
+                <View
+                    style="@style/line"
+                    android:layout_marginEnd="@dimen/line_margin_end"
+                    android:layout_marginLeft="@dimen/line_margin_start"
+                    android:layout_marginRight="@dimen/line_margin_end"
+                    android:layout_marginStart="@dimen/line_margin_start" />
 
             </LinearLayout>
 
         </LinearLayout>
 
     </ScrollView>
-    
 
-    
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/no_height"
         android:layout_weight="1">
-        
+
     </LinearLayout>
-    
-    
+
 
 </LinearLayout>

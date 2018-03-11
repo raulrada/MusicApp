@@ -10,6 +10,9 @@
 
     <color name="colorActivityTitleText">#091564</color>
 
+    <color name="colorDetailsSubtitleText">#5967c1</color>
+    <color name="colorDetailsContextText">#091564</color>
+
     <color name="colorPlayButton">#091564</color>
 
     <color name="listItemBackground">#FFFDE7</color>

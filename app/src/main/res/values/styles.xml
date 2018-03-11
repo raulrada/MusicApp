@@ -22,6 +22,24 @@
         <item name="android:gravity">center</item>
     </style>
 
+    <style name="TextAppearance.MusicApp.SubTitle">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_marginTop">@dimen/details_sub_title_margin_top</item>
+        <item name="android:layout_marginBottom">@dimen/details_sub_title_margin_bottom</item>
+        <item name="android:textSize">@dimen/details_sub_title_text_size</item>
+        <item name="android:textColor">@color/colorDetailsSubtitleText</item>
+    </style>
+
+    <style name="TextAppearance.MusicApp.Content">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_marginTop">@dimen/details_content_margin_top</item>
+        <item name="android:layout_marginBottom">@dimen/details_content_margin_bottom</item>
+        <item name="android:textSize">@dimen/details_content_text_size</item>
+        <item name="android:textColor">@color/colorDetailsContextText</item>
+    </style>
+
     <style name="line">
         <item name="android:layout_marginTop">@dimen/line_margin_top</item>
         <item name="android:layout_marginBottom">@dimen/line_margin_bottom</item>
