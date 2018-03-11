@@ -34,11 +34,21 @@ public class PlaylistActivity extends AppCompatActivity {
     }
 
     /**
-     * initialize various variables necessary for the activity
+     * coordinate the initialization of variables necessary for the activity
+     * and populate activity layout
      */
     public void setup(){
-        lv = (ListView) findViewById(R.id.songs_list_view);
         generateSongs();
+        populateList();
+    }
+
+    /**
+     * display list of available songs in ListView powered by custom SongAdapter
+     */
+    private void populateList() {
+        lv = (ListView) findViewById(R.id.songs_list_view);
+        SongAdapter songAdapter = new SongAdapter(this, songs);
+        lv.setAdapter(songAdapter);
     }
 
     /**
