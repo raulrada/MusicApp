@@ -3,7 +3,43 @@
 
     <string name="play">Play</string>
     <string name="available_songs">Available Songs</string>
+    <string name="song_details">Song Details</string>
 
     <string name="list_of_available_songs">List of Available Songs</string>
+
+    <string name="elvis">Elvis Presley</string>
+    <string name="suspicious_minds">Suspicious Minds</string>
+    <string name="dont">Don\'t</string>
+    <string name="just_pretend">Just Pretend</string>
+    <string name="burning_love">Burning Love</string>
+    <string name="rock_roll">Rock &amp; Roll</string>
+
+    <string name="dvicio">Dvicio</string>
+    <string name="casi_humanos">Casi Humanos</string>
+    <string name="rock">Rock</string>
+
+    <string name="ed_sheeran">Ed Sheeran</string>
+    <string name="castle">Castle on the Hill</string>
+    <string name="dance">Dance</string>
+
+    <string name="emeli">Emeli Sande</string>
+    <string name="hurts">Hurts</string>
+
+    <string name="erasure">Erasure</string>
+    <string name="always">Always</string>
+
+    <string name="j_five">J Five</string>
+    <string name="modern_times">Modern Times</string>
+
+    <string name="afgo">Afgo</string>
+    <string name="deja_ser">Deja de Ser</string>
+    <string name="house">House</string>
+
+    <string name="faithless">Faithless</string>
+    <string name="we_come_1">We Come 1</string>
+    
+    <string name="dr_dre">Dr. Dre</string>
+    <string name="still_dre">Still D.R.E.</string>
+    <string name="hip_hop">Hip-Hop</string>
 
 </resources>

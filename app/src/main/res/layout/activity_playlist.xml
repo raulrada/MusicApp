@@ -16,6 +16,7 @@
         android:text="@string/list_of_available_songs" />
 
     <ListView
+        android:id="@+id/songs_list_view"
         android:layout_width="match_parent"
         android:layout_height="@dimen/no_height"
         android:layout_weight="1">
