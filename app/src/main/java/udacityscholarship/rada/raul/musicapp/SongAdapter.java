@@ -3,10 +3,13 @@
 package udacityscholarship.rada.raul.musicapp;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import java.util.ArrayList;
 
@@ -15,6 +18,8 @@ import java.util.ArrayList;
  * about Song objects included in an ArrayList
  */
 public class SongAdapter extends ArrayAdapter<Song> {
+
+    private Context c; //necessary to startActivity based on Intent
 
     /**
      * custom constructor.
@@ -26,6 +31,7 @@ public class SongAdapter extends ArrayAdapter<Song> {
         //initialize the ArrayAdapter's internal storage for the context and the list.
         //second argument is not used by my custom adapter, since I inflate layout manually.
         super(context, 0, songs);
+        this.c = context;
     }
 
     /**
@@ -44,10 +50,11 @@ public class SongAdapter extends ArrayAdapter<Song> {
             listViewItem = LayoutInflater.from(getContext()).inflate(R.layout.list_item, parent, false);
         }
 
-        //find TextViews in list_item.xml
+        //find TextViews & Button in list_item.xml
         TextView songPositionTextView = (TextView) listViewItem.findViewById(R.id.song_position);
         TextView songTitleTextView = (TextView) listViewItem.findViewById(R.id.song_title);
         TextView songArtistTextView = (TextView) listViewItem.findViewById(R.id.song_artist_name);
+        ImageButton playButton = (ImageButton) listViewItem.findViewById(R.id.play_button_playlist);
 
         Song currentSong = getItem(position);
 
@@ -55,6 +62,19 @@ public class SongAdapter extends ArrayAdapter<Song> {
         songPositionTextView.setText(String.valueOf(position+1)); //adjust for starting index of 0
         songTitleTextView.setText(currentSong.getSongTitle());
         songArtistTextView.setText(currentSong.getSongArtist());
+
+        playButton.setOnClickListener(new View.OnClickListener() {
+            /**
+             * onClickListener for buttons in ListView
+             * loosely inspired from https://stackoverflow.com/questions/40862154/how-to-create-listview-items-button-in-each-row
+             * @param v
+             */
+            @Override
+            public void onClick(View v) {
+                Intent startPlay = new Intent(c, DetailsActivity.class);
+                c.startActivity(startPlay);
+            }
+        });
 
         //return the list item layout to be displayed in ListView
         return listViewItem;
