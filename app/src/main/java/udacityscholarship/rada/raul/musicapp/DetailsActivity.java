@@ -19,6 +19,8 @@ public class DetailsActivity extends AppCompatActivity {
     private int position;
     private Song currentSong;
 
+    private static final String KEY_POSITION = "current_position";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +60,28 @@ public class DetailsActivity extends AppCompatActivity {
         titleTextView.setText(cSong.getSongTitle());
         genreTextView.setText(cSong.getSongGenre());
         yearTextView.setText(String.valueOf(cSong.getSongYear()));
+    }
+
+    /**
+     * save value of selected variables for preserving state of displayed layout.
+     * @param savedInstanceState bundle object
+     */
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        savedInstanceState.putInt(KEY_POSITION, position);
+        super.onSaveInstanceState(savedInstanceState);
+    }
+
+    /**
+     * restore value of selected variables and update displayed layout.
+     * @param savedInstanceState bundle object
+     */
+    @Override
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        position = savedInstanceState.getInt(KEY_POSITION);
+        currentSong = PlaylistActivity.songs.get(position);
+        populateLayout(currentSong);
     }
 
 }
