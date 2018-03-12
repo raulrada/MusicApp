@@ -2,6 +2,8 @@
     <string name="app_name">Music App</string>
 
     <string name="play">Play</string>
+    <string name="back_first">Back to first song</string>
+    <string name="rewind">Rewind</string>
     <string name="available_songs">Available Songs</string>
     <string name="song_details">Song Details</string>
 
@@ -43,7 +45,7 @@
 
     <string name="faithless">Faithless</string>
     <string name="we_come_1">We Come 1</string>
-    
+
     <string name="dr_dre">Dr. Dre</string>
     <string name="still_dre">Still D.R.E.</string>
     <string name="hip_hop">Hip-Hop</string>

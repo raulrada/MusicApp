@@ -190,12 +190,78 @@
 
     </ScrollView>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/no_height"
         android:layout_weight="1">
 
-    </LinearLayout>
+        <ImageButton
+            android:id="@+id/play_image_button"
+            style="@style/Widget.MusicApp.ImageButton"
+            android:layout_centerHorizontal="true"
+            android:layout_marginEnd="@dimen/play_button_playlist_margin_end"
+            android:layout_marginLeft="@dimen/play_button_playlist_margin_start"
+            android:layout_marginRight="@dimen/play_button_playlist_margin_end"
+            android:layout_marginStart="@dimen/play_button_playlist_margin_start"
+            android:contentDescription="@string/play"
+            android:src="@drawable/play_vector" />
+
+        <ImageButton
+            android:id="@+id/rewind_image_button"
+            style="@style/Widget.MusicApp.ImageButton"
+            android:layout_marginEnd="@dimen/play_button_playlist_margin_end"
+            android:layout_marginLeft="@dimen/play_button_playlist_margin_start"
+            android:layout_marginRight="@dimen/play_button_playlist_margin_end"
+            android:layout_marginStart="@dimen/play_button_playlist_margin_start"
+            android:layout_toLeftOf="@id/play_image_button"
+            android:contentDescription="@string/rewind"
+            android:src="@drawable/rewind_vector" />
+
+        <ImageButton
+            android:id="@+id/back_first_image_button"
+            style="@style/Widget.MusicApp.ImageButton"
+            android:layout_marginEnd="@dimen/play_button_playlist_margin_end"
+            android:layout_marginLeft="@dimen/play_button_playlist_margin_start"
+            android:layout_marginRight="@dimen/play_button_playlist_margin_end"
+            android:layout_marginStart="@dimen/play_button_playlist_margin_start"
+            android:layout_toLeftOf="@id/rewind_image_button"
+            android:contentDescription="@string/rewind"
+            android:src="@drawable/back_first_vector" />
+
+        <ImageButton
+            android:id="@+id/forward_image_button"
+            style="@style/Widget.MusicApp.ImageButton"
+            android:layout_marginEnd="@dimen/play_button_playlist_margin_end"
+            android:layout_marginLeft="@dimen/play_button_playlist_margin_start"
+            android:layout_marginRight="@dimen/play_button_playlist_margin_end"
+            android:layout_marginStart="@dimen/play_button_playlist_margin_start"
+            android:layout_toRightOf="@id/play_image_button"
+            android:contentDescription="@string/rewind"
+            android:src="@drawable/forward_vector" />
+
+        <ImageButton
+            android:id="@+id/forward_last_image_button"
+            style="@style/Widget.MusicApp.ImageButton"
+            android:layout_marginEnd="@dimen/play_button_playlist_margin_end"
+            android:layout_marginLeft="@dimen/play_button_playlist_margin_start"
+            android:layout_marginRight="@dimen/play_button_playlist_margin_end"
+            android:layout_marginStart="@dimen/play_button_playlist_margin_start"
+            android:layout_toRightOf="@id/forward_image_button"
+            android:contentDescription="@string/rewind"
+            android:src="@drawable/forward_last_vector" />
+
+        <ImageButton
+            android:id="@+id/pause_image_button"
+            style="@style/Widget.MusicApp.ImageButton"
+            android:layout_centerHorizontal="true"
+            android:layout_marginEnd="@dimen/play_button_playlist_margin_end"
+            android:layout_marginLeft="@dimen/play_button_playlist_margin_start"
+            android:layout_marginRight="@dimen/play_button_playlist_margin_end"
+            android:layout_marginStart="@dimen/play_button_playlist_margin_start"
+            android:contentDescription="@string/rewind"
+            android:src="@drawable/pause_vector" />
+
+    </RelativeLayout>
 
 
 </LinearLayout>
