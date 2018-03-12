@@ -48,4 +48,12 @@
         <item name="android:background">@color/colorLine</item>
     </style>
 
+    <style name="Widget.MusicApp.ImageButton" parent="Widget.AppCompat.ImageButton">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_marginBottom">@dimen/play_button_playlist_margin_bottom</item>
+        <item name="android:layout_marginTop">@dimen/play_button_playlist_margin_top</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
 </resources>

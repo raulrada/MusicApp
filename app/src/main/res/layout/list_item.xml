@@ -70,16 +70,12 @@
     </LinearLayout>
 
     <ImageButton
+        style="@style/Widget.MusicApp.ImageButton"
         android:id="@+id/play_button_playlist"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/play_button_playlist_margin_bottom"
         android:layout_marginEnd="@dimen/play_button_playlist_margin_end"
         android:layout_marginLeft="@dimen/play_button_playlist_margin_start"
         android:layout_marginRight="@dimen/play_button_playlist_margin_end"
         android:layout_marginStart="@dimen/play_button_playlist_margin_start"
-        android:layout_marginTop="@dimen/play_button_playlist_margin_top"
-        android:background="@android:color/transparent"
         android:contentDescription="@string/play"
         android:src="@drawable/play_vector" />
 
