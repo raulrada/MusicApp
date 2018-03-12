@@ -1,7 +1,9 @@
 package udacityscholarship.rada.raul.musicapp;
 
+import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -13,6 +15,12 @@ public class DetailsActivity extends AppCompatActivity {
     private TextView titleTextView;
     private TextView genreTextView;
     private TextView yearTextView;
+    private ImageButton playImageButton;
+    private ImageButton rewindImageButton;
+    private ImageButton backFirstImageButton;
+    private ImageButton forwardImageButton;
+    private ImageButton forwardLastImageButton;
+    private ImageButton pauseImageButton;
 
     private int position;
     private Song currentSong;
@@ -46,6 +54,12 @@ public class DetailsActivity extends AppCompatActivity {
         titleTextView = (TextView) findViewById(R.id.title_text_view_details);
         genreTextView = (TextView) findViewById(R.id.genre_text_view_details);
         yearTextView = (TextView) findViewById(R.id.year_text_view_details);
+        playImageButton = (ImageButton) findViewById(R.id.play_image_button);
+        rewindImageButton = (ImageButton) findViewById(R.id.rewind_image_button);
+        backFirstImageButton = (ImageButton) findViewById(R.id.back_first_image_button);
+        forwardImageButton = (ImageButton) findViewById(R.id.forward_image_button);
+        forwardLastImageButton = (ImageButton) findViewById(R.id.forward_last_image_button);
+        pauseImageButton = (ImageButton)findViewById(R.id.pause_image_button);
     }
 
     /**
