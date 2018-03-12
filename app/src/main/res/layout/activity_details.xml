@@ -259,6 +259,7 @@
             android:layout_marginRight="@dimen/play_button_playlist_margin_end"
             android:layout_marginStart="@dimen/play_button_playlist_margin_start"
             android:contentDescription="@string/rewind"
+            android:visibility="invisible"
             android:src="@drawable/pause_vector" />
 
     </RelativeLayout>

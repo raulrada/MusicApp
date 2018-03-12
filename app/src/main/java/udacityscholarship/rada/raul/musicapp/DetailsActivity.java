@@ -3,6 +3,7 @@ package udacityscholarship.rada.raul.musicapp;
 import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -23,22 +24,69 @@ public class DetailsActivity extends AppCompatActivity {
     private ImageButton pauseImageButton;
 
     private int position;
+    private boolean isPlaying;
     private Song currentSong;
 
     private static final String KEY_POSITION = "current_position";
+    private static final String KEY_IS_PLAYING = "is_playing";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
         setup();
+
+        if (savedInstanceState==null){
+            isPlaying = true;
+            playVisibility(isPlaying);
+        }
+
+        playImageButton.setOnClickListener(new View.OnClickListener() {
+            /**
+             * OnClickListener for play ImageButton, to determine that current song is playing
+             * @param v
+             */
+            @Override
+            public void onClick(View v){
+                isPlaying = true;
+                playVisibility(isPlaying);
+            }
+        });
+
+        pauseImageButton.setOnClickListener(new View.OnClickListener() {
+            /**
+             * OnClickListener for pause ImageButton, to determine that current song is not playing
+             * @param v
+             */
+            @Override
+            public void onClick(View v) {
+                isPlaying = false;
+                playVisibility(isPlaying);
+            }
+        });
+    }
+
+    /**
+     * when song is playing, make play button invisible and pause button visible,
+     * and vice versa when song is not playing
+     * @param isPlaying boolean variable which is true when song is playing
+     */
+    public void playVisibility(boolean isPlaying) {
+        if(isPlaying){
+            playImageButton.setVisibility(View.INVISIBLE);
+            pauseImageButton.setVisibility(View.VISIBLE);
+        }
+        else{
+            playImageButton.setVisibility(View.VISIBLE);
+            pauseImageButton.setVisibility(View.INVISIBLE);
+        }
     }
 
     /**
      * coordinates the initialization of variables necessary for the activity
      * and populate activity layout
      */
-    private void setup() {
+    public void setup() {
         initializeVariables();
         populateLayout(currentSong);
     }
@@ -46,7 +94,7 @@ public class DetailsActivity extends AppCompatActivity {
     /**
      * initializes variables necessary for the app
      */
-    private void initializeVariables() {
+    public void initializeVariables() {
         position = getIntent().getIntExtra("SONG_POSITION", 0);
         currentSong = PlaylistActivity.songs.get(position);
         songPositionTextView = (TextView) findViewById(R.id.song_position_text_view_details);
@@ -65,7 +113,7 @@ public class DetailsActivity extends AppCompatActivity {
     /**
      * populates activity layout
      */
-    private void populateLayout(Song cSong) {
+    public void populateLayout(Song cSong) {
         int index = PlaylistActivity.songs.indexOf(cSong);
         songPositionTextView.setText(String.valueOf(index+1));
         artistTextView.setText(cSong.getSongArtist());
@@ -81,6 +129,7 @@ public class DetailsActivity extends AppCompatActivity {
     @Override
     public void onSaveInstanceState(Bundle savedInstanceState) {
         savedInstanceState.putInt(KEY_POSITION, position);
+        savedInstanceState.putBoolean(KEY_IS_PLAYING, isPlaying);
         super.onSaveInstanceState(savedInstanceState);
     }
 
@@ -92,6 +141,8 @@ public class DetailsActivity extends AppCompatActivity {
     public void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
         position = savedInstanceState.getInt(KEY_POSITION);
+        isPlaying = savedInstanceState.getBoolean(KEY_IS_PLAYING);
+        playVisibility(isPlaying);
         currentSong = PlaylistActivity.songs.get(position);
         populateLayout(currentSong);
     }
