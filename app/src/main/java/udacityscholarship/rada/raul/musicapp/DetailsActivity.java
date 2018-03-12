@@ -44,6 +44,7 @@ public class DetailsActivity extends AppCompatActivity {
         playImageButton.setOnClickListener(new View.OnClickListener() {
             /**
              * OnClickListener for play ImageButton, to determine that current song is playing
+             * when clicked, the play button becomes invisible and the pause button, visible
              * @param v
              */
             @Override
@@ -56,6 +57,7 @@ public class DetailsActivity extends AppCompatActivity {
         pauseImageButton.setOnClickListener(new View.OnClickListener() {
             /**
              * OnClickListener for pause ImageButton, to determine that current song is not playing
+             * when clicked, the pause button becomes invisible and the play button, visible
              * @param v
              */
             @Override
