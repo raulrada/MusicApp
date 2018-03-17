@@ -66,6 +66,23 @@ public class DetailsActivity extends AppCompatActivity {
                 playVisibility(isPlaying);
             }
         });
+
+        rewindImageButton.setOnClickListener(new View.OnClickListener() {
+            /**
+             * OnClickListener for rewind ImageButton. Moves to previous song if there is a
+             * previous song, and updates the details on screen for previous song.
+             * @param v
+             */
+            @Override
+            public void onClick(View v) {
+                if (position>0){
+                    position--;
+                    currentSong = PlaylistActivity.songs.get(position);
+                    populateLayout(currentSong);
+                }
+            }
+        });
+
     }
 
     /**
