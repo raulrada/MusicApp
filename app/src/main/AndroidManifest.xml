@@ -10,8 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".PlaylistActivity"
-            android:label="@string/available_songs">
+            android:name=".PlaylistActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

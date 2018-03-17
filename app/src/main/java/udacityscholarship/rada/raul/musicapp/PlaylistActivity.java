@@ -37,6 +37,7 @@ public class PlaylistActivity extends AppCompatActivity {
      * and populate activity layout
      */
     public void setup(){
+        getSupportActionBar().setTitle(R.string.available_songs);
         generateSongs();
         populateList();
     }
