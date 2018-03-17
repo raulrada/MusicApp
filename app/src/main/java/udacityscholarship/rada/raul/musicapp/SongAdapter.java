@@ -75,6 +75,7 @@ public class SongAdapter extends ArrayAdapter<Song> {
             public void onClick(View v) {
                 Intent startPlay = new Intent(c, DetailsActivity.class);
                 startPlay.putExtra("SONG_POSITION", mPosition);
+                startPlay.putExtra("USER_PREFERRED_ORDER", PlaylistActivity.userOrder);
                 c.startActivity(startPlay);
             }
         });

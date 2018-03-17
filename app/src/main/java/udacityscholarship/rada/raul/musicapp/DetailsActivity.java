@@ -1,10 +1,12 @@
 package udacityscholarship.rada.raul.musicapp;
 
+import android.content.Intent;
 import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -23,8 +25,10 @@ public class DetailsActivity extends AppCompatActivity {
     private ImageButton forwardImageButton;
     private ImageButton forwardLastImageButton;
     private ImageButton pauseImageButton;
+    private Button backToPlaylistButton;
 
     private int position;
+    private int [] userOrder;
     private boolean isPlaying;
     private Song currentSong;
 
@@ -151,6 +155,16 @@ public class DetailsActivity extends AppCompatActivity {
                 populateLayout(currentSong);
             }
         });
+
+        backToPlaylistButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent startPlaylistActivity = new Intent(DetailsActivity.this, PlaylistActivity.class);
+                startPlaylistActivity.putExtra("USER_PREFERRED_ORDER", userOrder);
+                startActivity(startPlaylistActivity);
+            }
+        });
+
     }
 
     /**
@@ -183,6 +197,7 @@ public class DetailsActivity extends AppCompatActivity {
      */
     public void initializeVariables() {
         position = getIntent().getIntExtra("SONG_POSITION", 0);
+        userOrder = getIntent().getIntArrayExtra("USER_PREFERRED_ORDER");
         currentSong = PlaylistActivity.songs.get(position);
         songPositionTextView = (TextView) findViewById(R.id.song_position_text_view_details);
         artistTextView = (TextView) findViewById(R.id.artist_text_view_details);
@@ -195,6 +210,7 @@ public class DetailsActivity extends AppCompatActivity {
         forwardImageButton = (ImageButton) findViewById(R.id.forward_image_button);
         forwardLastImageButton = (ImageButton) findViewById(R.id.forward_last_image_button);
         pauseImageButton = (ImageButton)findViewById(R.id.pause_image_button);
+        backToPlaylistButton = (Button) findViewById(R.id.back_playlist_button);
     }
 
     /**
