@@ -3,6 +3,7 @@ package udacityscholarship.rada.raul.musicapp;
 import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -71,6 +72,8 @@ public class DetailsActivity extends AppCompatActivity {
             /**
              * OnClickListener for rewind ImageButton. Moves to previous song if there is a
              * previous song, and updates the details on screen for previous song.
+             * The song about which details are displayed starts playing (the play ImageButton is
+             * hidden and the pause ImageButton is displayed in its stead).
              * @param v
              */
             @Override
@@ -79,6 +82,8 @@ public class DetailsActivity extends AppCompatActivity {
                     position--;
                     currentSong = PlaylistActivity.songs.get(position);
                     populateLayout(currentSong);
+                    isPlaying = true;
+                    playVisibility(isPlaying);
                 }
             }
         });
@@ -87,6 +92,8 @@ public class DetailsActivity extends AppCompatActivity {
             /**
              * OnClickListener for forward ImageButton. Moves to next song if there is a
              * previous song, and updates the details on screen for next song.
+             * The song about which details are displayed starts playing (the play ImageButton is
+             * hidden and the pause ImageButton is displayed in its stead).
              * @param v
              */
             @Override
@@ -95,10 +102,55 @@ public class DetailsActivity extends AppCompatActivity {
                     position++;
                     currentSong = PlaylistActivity.songs.get(position);
                     populateLayout(currentSong);
+                    isPlaying = true;
+                    playVisibility(isPlaying);
                 }
             }
         });
 
+        backFirstImageButton.setOnClickListener(new View.OnClickListener() {
+            /**
+             * OnClickListener for back to first song ImageButton. Moves to first song,
+             * and updates the details on screen for first song.
+             * The song about which details are displayed starts playing (the play ImageButton is
+             * hidden and the pause ImageButton is displayed in its stead).
+             * @param v
+             */
+            @Override
+            public void onClick(View v) {
+                //if not already at the first song, consider first song starts playing after
+                //pressing the backFirstImageButton. Otherwise simply keep the current play/pause status.
+                if(position != 0){
+                    isPlaying = true;
+                    playVisibility(isPlaying);
+                }
+                position = 0;
+                currentSong = PlaylistActivity.songs.get(position);
+                populateLayout(currentSong);
+            }
+        });
+
+        forwardLastImageButton.setOnClickListener(new View.OnClickListener() {
+            /**
+             * OnClickListener for forward to last song ImageButton. Moves to last song,
+             * and updates the details on screen for last song.
+             * The song about which details are displayed starts playing (the play ImageButton is
+             * hidden and the pause ImageButton is displayed in its stead).
+             * @param v
+             */
+            @Override
+            public void onClick(View v) {
+                //if not already at the last song, consider last song starts playing after
+                //pressing the forwardLastImageButton. Otherwise simply keep the current play/pause status.
+                if(position != (PlaylistActivity.songs.size()-1)){
+                    isPlaying = true;
+                    playVisibility(isPlaying);
+                }
+                position = PlaylistActivity.songs.size()-1;
+                currentSong = PlaylistActivity.songs.get(position);
+                populateLayout(currentSong);
+            }
+        });
     }
 
     /**
