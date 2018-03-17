@@ -75,8 +75,24 @@ public class DetailsActivity extends AppCompatActivity {
              */
             @Override
             public void onClick(View v) {
-                if (position>0){
+                if (position > 0){
                     position--;
+                    currentSong = PlaylistActivity.songs.get(position);
+                    populateLayout(currentSong);
+                }
+            }
+        });
+
+        forwardImageButton.setOnClickListener(new View.OnClickListener() {
+            /**
+             * OnClickListener for forward ImageButton. Moves to next song if there is a
+             * previous song, and updates the details on screen for next song.
+             * @param v
+             */
+            @Override
+            public void onClick(View v) {
+                if (position < (PlaylistActivity.songs.size()-1)){
+                    position++;
                     currentSong = PlaylistActivity.songs.get(position);
                     populateLayout(currentSong);
                 }
