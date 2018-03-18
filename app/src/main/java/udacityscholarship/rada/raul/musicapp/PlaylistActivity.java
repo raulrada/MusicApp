@@ -13,10 +13,12 @@ public class PlaylistActivity extends AppCompatActivity {
                                          // without instantiating PlaylistActivity
 
     private ArrayList<Song> rawSongsList; //list of songs, not necessarily in the order in which
-                                          //the user wants to see them
+                                          //the user wants to see them.
 
     public static int [] userOrder; //array keeping track of the order in which the songs in rawSongsList
-                              //should be displayed based on user preferences
+                                    //should be displayed based on user preferences.
+                                    //it is static to make available in other classes,
+                                    //without instantiating PlaylistActivity
 
     private static final int SUSPICIOUS_MINDS_RELEASE_DATE = 1969;
     private static final int DON_T_RELEASE_DATE = 1957;

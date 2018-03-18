@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="options_array">
+        <item>Default</item>
+        <item>Random</item>
+        <item>A-Z Song Title</item>
+        <item>A-Z Artist</item>
+    </string-array>
+</resources>
