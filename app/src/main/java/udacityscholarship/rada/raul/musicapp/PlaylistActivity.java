@@ -3,8 +3,14 @@ package udacityscholarship.rada.raul.musicapp;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Spinner;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 
 public class PlaylistActivity extends AppCompatActivity {
@@ -20,6 +26,18 @@ public class PlaylistActivity extends AppCompatActivity {
                                     //it is static to make available in other classes,
                                     //without instantiating PlaylistActivity
 
+    public static String spinnerSelection; //static to make it available in other classes,
+                                           // without instantiating PlaylistActivity
+
+    public static String isRandomized; //keeps track of whether list of songs is already randomized, to
+                                       //avoid a new randomization on screen rotation.
+                                       //due to Intent putExtra / getBooleanExtra implementation
+                                       //limitations, boolean is not a suitable type.
+
+    private Spinner sortSpinner;
+    private ArrayAdapter<CharSequence> spinnerAdapter;
+    private String [] spinnerOptions;
+
     private static final int SUSPICIOUS_MINDS_RELEASE_DATE = 1969;
     private static final int DON_T_RELEASE_DATE = 1957;
     private static final int JUST_PRETEND_RELEASE_DATE = 1970;
@@ -33,13 +51,42 @@ public class PlaylistActivity extends AppCompatActivity {
     private static final int WE_COME_1_RELEASE_DATE = 2001;
     private static final int STILL_DRE_RELEASE_DATE = 2001;
 
-    public static final String KEY_USER_ORDER = "userOrderKey";
+    private static final String KEY_USER_ORDER = "userOrderKey";
+    private static final String KEY_IS_RANDOMIZED = "isRandomizedKey";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_playlist);
         setup();
+        sortSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                spinnerSelection = sortSpinner.getSelectedItem().toString();
+
+                //switch structure difficult to implement, due to requiring constants as cases.
+                //strings in spinner_options.xml may be changed in future
+                if (spinnerOptions[0].equalsIgnoreCase(sortSpinner.getSelectedItem().toString())){
+                    isRandomized = "no";
+                    initializeSongsOrder();
+                    generateSongs();
+                    populateList();
+                }
+
+                if (spinnerOptions[1].equalsIgnoreCase(sortSpinner.getSelectedItem().toString())){
+                    //avoid a new randomization on screen rotation, if song list is already randomized
+                    if (isRandomized.equalsIgnoreCase("no")) userOrder = shuffleArray(userOrder);
+                    generateSongs();
+                    populateList();
+                    isRandomized = "yes";
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                //auto-generated stub
+            }
+        });
     }
 
     /**
@@ -48,6 +95,27 @@ public class PlaylistActivity extends AppCompatActivity {
      */
     public void setup(){
         getSupportActionBar().setTitle(R.string.available_songs); //set title for activity
+        isRandomized = "no";
+
+        //if PlayList activity is launched through intent from DetailsActivity, restore pre-existing
+        //status of isRandomized. Otherwise (i.e., on first run of PlaylistActivity), initialize isRandomized.
+        if (getIntent().getStringExtra("IS_RANDOMIZED") != null){
+            isRandomized = getIntent().getStringExtra("IS_RANDOMIZED");
+        }
+        else {
+            isRandomized = "no";
+        }
+        Log.v("raulrrr", "isRandomized: "+isRandomized);
+
+        setupSpinner();
+
+        //if PlayList activity is launched through intent from DetailsActivity, restore pre-existing
+        //spinner selection.
+        if (getIntent().getStringExtra("SPINNER_SELECTION") != null){
+            spinnerSelection = getIntent().getStringExtra("SPINNER_SELECTION");
+            sortSpinner.setSelection(Arrays.asList(spinnerOptions).indexOf(spinnerSelection));
+        }
+
         generateRawSongs();
 
         //if PlayList activity is launched through intent from DetailsActivity, restore pre-existing
@@ -64,6 +132,19 @@ public class PlaylistActivity extends AppCompatActivity {
     }
 
     /**
+     * setup the spinner allowing the user to select the order in which the available songs are
+     * presented in the playlist
+     */
+    private void setupSpinner() {
+        spinnerOptions = getResources().getStringArray(R.array.options_array);
+        sortSpinner = (Spinner) findViewById(R.id.sort_spinner);
+        spinnerAdapter = ArrayAdapter.createFromResource(this, R.array.options_array, android.R.layout.simple_spinner_item);
+        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        sortSpinner.setAdapter(spinnerAdapter);
+        spinnerSelection = sortSpinner.getSelectedItem().toString();
+    }
+
+    /**
      * initializes the userOrder array. The initial values reflect the default order of songs, being
      * the order in which the songs are included in rawSongsList.
      */
@@ -72,7 +153,6 @@ public class PlaylistActivity extends AppCompatActivity {
         for (int i = 0; i < rawSongsList.size(); i++){
             userOrder[i] = i;
         }
-        userOrder = shuffleArray(userOrder);
     }
 
     /**
@@ -136,6 +216,7 @@ public class PlaylistActivity extends AppCompatActivity {
     @Override
     public void onSaveInstanceState(Bundle savedInstanceState) {
         savedInstanceState.putIntArray(KEY_USER_ORDER, userOrder);
+        savedInstanceState.putString(KEY_IS_RANDOMIZED, isRandomized);
         super.onSaveInstanceState(savedInstanceState);
     }
 
@@ -147,6 +228,7 @@ public class PlaylistActivity extends AppCompatActivity {
     public void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
         userOrder = savedInstanceState.getIntArray(KEY_USER_ORDER);
+        isRandomized = savedInstanceState.getString(KEY_IS_RANDOMIZED);
     }
 
 }

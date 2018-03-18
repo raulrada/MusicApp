@@ -76,6 +76,8 @@ public class SongAdapter extends ArrayAdapter<Song> {
                 Intent startPlay = new Intent(c, DetailsActivity.class);
                 startPlay.putExtra("SONG_POSITION", mPosition);
                 startPlay.putExtra("USER_PREFERRED_ORDER", PlaylistActivity.userOrder);
+                startPlay.putExtra("SPINNER_SELECTION", PlaylistActivity.spinnerSelection);
+                startPlay.putExtra("IS_RANDOMIZED", PlaylistActivity.isRandomized);
                 c.startActivity(startPlay);
             }
         });

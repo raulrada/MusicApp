@@ -26,10 +26,12 @@ public class DetailsActivity extends AppCompatActivity {
     private ImageButton forwardLastImageButton;
     private ImageButton pauseImageButton;
     private Button backToPlaylistButton;
+    private String spinnerSelection;
 
     private int position;
     private int [] userOrder;
     private boolean isPlaying;
+    private String isRandomized;
     private Song currentSong;
 
     private static final String KEY_POSITION = "current_position";
@@ -41,7 +43,9 @@ public class DetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_details);
         setup();
 
-        if (savedInstanceState==null){
+        //When user presses the play button for a song in PlaylistActivity, and launches DetailsActivity,
+        //the song is playing
+        if (savedInstanceState == null){
             isPlaying = true;
             playVisibility(isPlaying);
         }
@@ -161,6 +165,8 @@ public class DetailsActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent startPlaylistActivity = new Intent(DetailsActivity.this, PlaylistActivity.class);
                 startPlaylistActivity.putExtra("USER_PREFERRED_ORDER", userOrder);
+                startPlaylistActivity.putExtra("SPINNER_SELECTION", spinnerSelection);
+                startPlaylistActivity.putExtra("IS_RANDOMIZED", isRandomized);
                 startActivity(startPlaylistActivity);
             }
         });
@@ -198,6 +204,9 @@ public class DetailsActivity extends AppCompatActivity {
     public void initializeVariables() {
         position = getIntent().getIntExtra("SONG_POSITION", 0);
         userOrder = getIntent().getIntArrayExtra("USER_PREFERRED_ORDER");
+        spinnerSelection = getIntent().getStringExtra("SPINNER_SELECTION");
+        isRandomized = getIntent().getStringExtra("IS_RANDOMIZED");
+        Log.v("raulrrr", "isRandomized: "+isRandomized);
         currentSong = PlaylistActivity.songs.get(position);
         songPositionTextView = (TextView) findViewById(R.id.song_position_text_view_details);
         artistTextView = (TextView) findViewById(R.id.artist_text_view_details);
