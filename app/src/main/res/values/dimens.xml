@@ -60,4 +60,8 @@
     <dimen name="line_margin_bottom">0dp</dimen>
     <dimen name="line_thickness">1dp</dimen>
 
+    <dimen name="spinner_margin_start">15dp</dimen>
+    <dimen name="spinner_margin_end">15dp</dimen>
+    <dimen name="spinner_margin_top">5dp</dimen>
+    <dimen name="spinner_margin_bottom">5dp</dimen>
 </resources>
