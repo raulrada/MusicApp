@@ -8,6 +8,9 @@
     <color name="colorSongTitleText">#091564</color>
     <color name="colorSongArtistText">#5967c1</color>
 
+    <color name="colorTextButton">#091564</color>
+    <color name="colorBackgroundButton">#b3b7cc</color>
+
     <color name="colorActivityTitleText">#091564</color>
 
     <color name="colorDetailsSubtitleText">#5967c1</color>

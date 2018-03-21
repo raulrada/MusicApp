@@ -31,11 +31,14 @@
     <dimen name="play_button_playlist_margin_top">5dp</dimen>
     <dimen name="play_button_playlist_margin_bottom">5dp</dimen>
 
+    <dimen name="details_activity_button_margin_top">0dp</dimen>
+    <dimen name="details_activity_button_margin_bottom">5dp</dimen>
+
     <dimen name="activity_title_margin_start">5dp</dimen>
     <dimen name="activity_title_margin_end">5dp</dimen>
     <dimen name="activity_title_margin_top">5dp</dimen>
     <dimen name="activity_title_margin_bottom">5dp</dimen>
-    <dimen name="activity_title_text_size">22dp</dimen>
+    <dimen name="activity_title_text_size">22sp</dimen>
 
     <dimen name="listview_margin_start">10dp</dimen>
     <dimen name="listview_margin_end">10dp</dimen>
@@ -64,4 +67,6 @@
     <dimen name="spinner_margin_end">15dp</dimen>
     <dimen name="spinner_margin_top">5dp</dimen>
     <dimen name="spinner_margin_bottom">5dp</dimen>
+
+    <dimen name="button_text_size">17sp</dimen>
 </resources>
