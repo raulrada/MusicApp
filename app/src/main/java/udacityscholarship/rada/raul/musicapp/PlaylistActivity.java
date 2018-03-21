@@ -59,27 +59,12 @@ public class PlaylistActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_playlist);
         setup();
+
         sortSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 spinnerSelection = sortSpinner.getSelectedItem().toString();
-
-                //switch structure difficult to implement, due to requiring constants as cases.
-                //strings in spinner_options.xml may be changed in future
-                if (spinnerOptions[0].equalsIgnoreCase(sortSpinner.getSelectedItem().toString())){
-                    isRandomized = "no";
-                    initializeSongsOrder();
-                    generateSongs();
-                    populateList();
-                }
-
-                if (spinnerOptions[1].equalsIgnoreCase(sortSpinner.getSelectedItem().toString())){
-                    //avoid a new randomization on screen rotation, if song list is already randomized
-                    if (isRandomized.equalsIgnoreCase("no")) userOrder = shuffleArray(userOrder);
-                    generateSongs();
-                    populateList();
-                    isRandomized = "yes";
-                }
+                chooseOrder();
             }
 
             @Override
@@ -152,6 +137,28 @@ public class PlaylistActivity extends AppCompatActivity {
         userOrder = new int[rawSongsList.size()];
         for (int i = 0; i < rawSongsList.size(); i++){
             userOrder[i] = i;
+        }
+    }
+
+    /**
+     *chooses the order in which the songs are displayed in the ListView
+     */
+    private void chooseOrder() {
+        //switch structure difficult to implement, due to requiring constants as cases.
+        //strings in spinner_options.xml (which powers the spinner) may be changed in future.
+        if (spinnerOptions[0].equalsIgnoreCase(sortSpinner.getSelectedItem().toString())){
+            isRandomized = "no";
+            initializeSongsOrder();
+            generateSongs();
+            populateList();
+        }
+
+        if (spinnerOptions[1].equalsIgnoreCase(sortSpinner.getSelectedItem().toString())){
+            //avoid a new randomization on screen rotation, if song list is already randomized
+            if (isRandomized.equalsIgnoreCase("no")) userOrder = shuffleArray(userOrder);
+            generateSongs();
+            populateList();
+            isRandomized = "yes";
         }
     }
 
