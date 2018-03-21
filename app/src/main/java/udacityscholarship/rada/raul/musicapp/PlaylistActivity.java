@@ -80,7 +80,6 @@ public class PlaylistActivity extends AppCompatActivity {
      * and populate activity layout
      */
     public void setup() {
-        getSupportActionBar().setTitle(R.string.available_songs); //set title for activity
         isRandomized = "no";
 
         //if PlayList activity is launched through intent from DetailsActivity, restore pre-existing
