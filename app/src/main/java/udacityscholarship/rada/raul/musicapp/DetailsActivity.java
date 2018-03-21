@@ -1,7 +1,6 @@
 package udacityscholarship.rada.raul.musicapp;
 
 import android.content.Intent;
-import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,10 +9,10 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-
 public class DetailsActivity extends AppCompatActivity {
 
+    private static final String KEY_POSITION = "current_position";
+    private static final String KEY_IS_PLAYING = "is_playing";
     private TextView songPositionTextView;
     private TextView artistTextView;
     private TextView titleTextView;
@@ -27,15 +26,11 @@ public class DetailsActivity extends AppCompatActivity {
     private ImageButton pauseImageButton;
     private Button backToPlaylistButton;
     private String spinnerSelection;
-
     private int position;
-    private int [] userOrder;
+    private int[] userOrder;
     private boolean isPlaying;
     private String isRandomized;
     private Song currentSong;
-
-    private static final String KEY_POSITION = "current_position";
-    private static final String KEY_IS_PLAYING = "is_playing";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +40,7 @@ public class DetailsActivity extends AppCompatActivity {
 
         //When user presses the play button for a song in PlaylistActivity, and launches DetailsActivity,
         //the song is playing
-        if (savedInstanceState == null){
+        if (savedInstanceState == null) {
             isPlaying = true;
             playVisibility(isPlaying);
         }
@@ -57,7 +52,7 @@ public class DetailsActivity extends AppCompatActivity {
              * @param v
              */
             @Override
-            public void onClick(View v){
+            public void onClick(View v) {
                 isPlaying = true;
                 playVisibility(isPlaying);
             }
@@ -86,7 +81,7 @@ public class DetailsActivity extends AppCompatActivity {
              */
             @Override
             public void onClick(View v) {
-                if (position > 0){
+                if (position > 0) {
                     position--;
                     currentSong = PlaylistActivity.songs.get(position);
                     populateLayout(currentSong);
@@ -106,7 +101,7 @@ public class DetailsActivity extends AppCompatActivity {
              */
             @Override
             public void onClick(View v) {
-                if (position < (PlaylistActivity.songs.size()-1)){
+                if (position < (PlaylistActivity.songs.size() - 1)) {
                     position++;
                     currentSong = PlaylistActivity.songs.get(position);
                     populateLayout(currentSong);
@@ -128,7 +123,7 @@ public class DetailsActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //if not already at the first song, consider first song starts playing after
                 //pressing the backFirstImageButton. Otherwise simply keep the current play/pause status.
-                if(position != 0){
+                if (position != 0) {
                     isPlaying = true;
                     playVisibility(isPlaying);
                 }
@@ -150,11 +145,11 @@ public class DetailsActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //if not already at the last song, consider last song starts playing after
                 //pressing the forwardLastImageButton. Otherwise simply keep the current play/pause status.
-                if(position != (PlaylistActivity.songs.size()-1)){
+                if (position != (PlaylistActivity.songs.size() - 1)) {
                     isPlaying = true;
                     playVisibility(isPlaying);
                 }
-                position = PlaylistActivity.songs.size()-1;
+                position = PlaylistActivity.songs.size() - 1;
                 currentSong = PlaylistActivity.songs.get(position);
                 populateLayout(currentSong);
             }
@@ -170,20 +165,19 @@ public class DetailsActivity extends AppCompatActivity {
                 startActivity(startPlaylistActivity);
             }
         });
-
     }
 
     /**
      * when song is playing, make play button invisible and pause button visible,
      * and vice versa when song is not playing
+     *
      * @param isPlaying boolean variable which is true when song is playing
      */
     public void playVisibility(boolean isPlaying) {
-        if(isPlaying){
+        if (isPlaying) {
             playImageButton.setVisibility(View.INVISIBLE);
             pauseImageButton.setVisibility(View.VISIBLE);
-        }
-        else{
+        } else {
             playImageButton.setVisibility(View.VISIBLE);
             pauseImageButton.setVisibility(View.INVISIBLE);
         }
@@ -206,7 +200,7 @@ public class DetailsActivity extends AppCompatActivity {
         userOrder = getIntent().getIntArrayExtra("USER_PREFERRED_ORDER");
         spinnerSelection = getIntent().getStringExtra("SPINNER_SELECTION");
         isRandomized = getIntent().getStringExtra("IS_RANDOMIZED");
-        Log.v("raulrrr", "isRandomized: "+isRandomized);
+        Log.v("raulrrr", "isRandomized: " + isRandomized);
         currentSong = PlaylistActivity.songs.get(position);
         songPositionTextView = (TextView) findViewById(R.id.song_position_text_view_details);
         artistTextView = (TextView) findViewById(R.id.artist_text_view_details);
@@ -218,7 +212,7 @@ public class DetailsActivity extends AppCompatActivity {
         backFirstImageButton = (ImageButton) findViewById(R.id.back_first_image_button);
         forwardImageButton = (ImageButton) findViewById(R.id.forward_image_button);
         forwardLastImageButton = (ImageButton) findViewById(R.id.forward_last_image_button);
-        pauseImageButton = (ImageButton)findViewById(R.id.pause_image_button);
+        pauseImageButton = (ImageButton) findViewById(R.id.pause_image_button);
         backToPlaylistButton = (Button) findViewById(R.id.back_playlist_button);
     }
 
@@ -227,7 +221,7 @@ public class DetailsActivity extends AppCompatActivity {
      */
     public void populateLayout(Song cSong) {
         int index = PlaylistActivity.songs.indexOf(cSong);
-        songPositionTextView.setText(String.valueOf(index+1));
+        songPositionTextView.setText(String.valueOf(index + 1));
         artistTextView.setText(cSong.getSongArtist());
         titleTextView.setText(cSong.getSongTitle());
         genreTextView.setText(cSong.getSongGenre());
@@ -236,6 +230,7 @@ public class DetailsActivity extends AppCompatActivity {
 
     /**
      * save value of selected variables for preserving state of displayed layout.
+     *
      * @param savedInstanceState bundle object
      */
     @Override
@@ -247,6 +242,7 @@ public class DetailsActivity extends AppCompatActivity {
 
     /**
      * restore value of selected variables and update displayed layout.
+     *
      * @param savedInstanceState bundle object
      */
     @Override

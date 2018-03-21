@@ -21,12 +21,13 @@ public class Song {
 
     /**
      * constructor for Song object
-     * @param title title of the song
+     *
+     * @param title  title of the song
      * @param artist artist performing the song
-     * @param genre genre of the song
-     * @param year when the song was released
+     * @param genre  genre of the song
+     * @param year   when the song was released
      */
-    public Song (String title, String artist, String genre, int year){
+    public Song(String title, String artist, String genre, int year) {
         mSongTitle = title;
         mSongArtist = artist;
         mSongGenre = genre;
@@ -35,33 +36,37 @@ public class Song {
 
     /**
      * get song title
+     *
      * @return song title
      */
-    public String getSongTitle(){
+    public String getSongTitle() {
         return mSongTitle;
     }
 
     /**
      * get artist singing the song
+     *
      * @return artist name
      */
-    public String getSongArtist(){
+    public String getSongArtist() {
         return mSongArtist;
     }
 
     /**
      * get song genre
+     *
      * @return genre of the song
      */
-    public String getSongGenre(){
+    public String getSongGenre() {
         return mSongGenre;
     }
 
     /**
      * get the year when the song was released
+     *
      * @return year the song was released
      */
-    public int getSongYear(){
+    public int getSongYear() {
         return mSongYear;
     }
 

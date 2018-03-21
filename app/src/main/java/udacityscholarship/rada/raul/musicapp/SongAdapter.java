@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
 import java.util.ArrayList;
 
 /**
@@ -36,9 +37,10 @@ public class SongAdapter extends ArrayAdapter<Song> {
 
     /**
      * provides a view for a ListView
-     * @param position The position in the list of data that should be displayed in the list item view.
+     *
+     * @param position    The position in the list of data that should be displayed in the list item view.
      * @param convertView The recycled view to populate.
-     * @param parent The parent ViewGroup that is used for inflation.
+     * @param parent      The parent ViewGroup that is used for inflation.
      * @return The View for the position in the ListView.
      */
     @Override
@@ -59,7 +61,7 @@ public class SongAdapter extends ArrayAdapter<Song> {
         Song currentSong = getItem(position);
 
         //get data from fields of current Song object and write it in TextViews
-        songPositionTextView.setText(String.valueOf(position+1)); //adjust for starting index of 0
+        songPositionTextView.setText(String.valueOf(position + 1)); //adjust for starting index of 0
         songTitleTextView.setText(currentSong.getSongTitle());
         songArtistTextView.setText(currentSong.getSongArtist());
 
